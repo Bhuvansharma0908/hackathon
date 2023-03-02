@@ -1,0 +1,73 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25vh;
+    width: 100vw;
+    background-color: #2B3467;
+}
+
+.logo {
+    height: 20vh;
+    width: 7vw;
+    margin: 20px;
+}
+
+#culogo {
+    background-image: url(/photos/cu-logo.png);
+    background-repeat: no-repeat;
+    background-size: 70% 100%;
+    width: 10vw;
+}
+
+#kavachlogo {
+    background-image: url(/photos/kavach-logo-white.png);
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    width: 15vw;
+}
+
+#qslogo {
+    background-image: url(/photos/qs-asia-logo-ranking.png);
+    background-repeat: no-repeat;
+    background-size: 100% 90%;
+    width: 20vw;
+}
+
+#form {
+    display: flex;
+    justify-content: center;
+    height: 250vh;
+    width: 100vw;
+    background-color: beige;
+}
+
+#internal_form {
+    height: 230vh;
+    width: 65vw;
+}
+
+.feilds {
+    display: flex;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
+    width: 60vw;
+    text-align: center;
+}
+
+#submitdiv {
+    display: flex;
+    justify-content: center;
+}
+
+#submit {
+    height: 5vh;
+    width: 10vw;
+}
