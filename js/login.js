@@ -75,7 +75,7 @@ function gotologin() { alert("User registed successfully"); }
 
 function auntenticate() {
     if (psname.value != "" && psid.value != "" && team.value != "" && lead_name.value != "" && lead_uid.value != "" && first_name.value != "" && first_uid.value != "" && second_name.value != "" && second_uid.value != "" && third_name.value != "" && third_uid.value != "") {
-        console.log(1);
+        
         return true;
     } else {
         return false;
