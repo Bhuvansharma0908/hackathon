@@ -38,22 +38,46 @@ const sixth_uid = document.getElementById("sixth_UID");
 
 function Registeruser() {
     const dbref = ref(db);
-    get(child(dbref, "UsersList/" + lead_uid.value)).then((snapshot) => {
-        if (snapshot.exists()) { alert("Already Exist"); } else {
-            set(child(dbref, "UsersList/" +
-                lead_uid.value), {
-                Leadername: lead_name.value,
-                lLeaderUID: lead_uid.value,
-                Firstmember: first_name.value,
-                FirstUID: first_uid.value,
-                Secondmember: second_name.value,
-                SecondUID: second_uid.value,
-                Thirdmember: third_name.value,
-                ThirdUID: third_uid.value
-            }).then(() => { gotologin(); }).catch((error) => { alert("error: " + error); })
-        }
-    });
+    if (auntenticate()) {
+        get(child(dbref, "UsersList/" + lead_uid.value)).then((snapshot) => {
+            if (snapshot.exists()) { alert("Already Exist"); } else {
+                set(child(dbref, "UsersList/" +
+                    lead_uid.value), {
+                    Problem_Statement: psname,
+                    PS_ID: psid,
+                    Team_Name: team,
+                    Leadername: lead_name.value,
+                    LeaderUID: lead_uid.value,
+                    Firstmember: first_name.value,
+                    FirstUID: first_uid.value,
+                    Secondmember: second_name.value,
+                    SecondUID: second_uid.value,
+                    Thirdmember: third_name.value,
+                    ThirdUID: third_uid.value,
+                    Fouthname: fourth_name,
+                    FourthUID: fourth_uid,
+                    Fifthname: fifth_name,
+                    FifthhUID: fifth_uid,
+                    Sixthname: sixth_name,
+                    SixthUID: sixth_uid
+
+                }).then(() => { gotologin(); }).catch((error) => { alert("error: " + error); })
+            }
+        });
+    } else {
+        alert("Add Atleast Three members")
+    }
+
 }
 submit.addEventListener('click', Registeruser);
 
 function gotologin() { alert("User registed successfully"); }
+
+function auntenticate() {
+    if (psname.value != "" && psid.value != "" && team.value != "" && lead_name.value != "" && lead_uid.value != "" && first_name.value != "" && first_uid.value != "" && second_name.value != "" && second_uid.value != "" && third_name.value != "" && third_uid.value != "") {
+        console.log(1);
+        return true;
+    } else {
+        return false;
+    }
+}
