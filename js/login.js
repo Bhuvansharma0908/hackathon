@@ -23,43 +23,60 @@ const psid = document.getElementById("psid");
 const team = document.getElementById("team_name");
 const lead_name = document.getElementById("leader_name");
 const lead_uid = document.getElementById("leader_UID");
+const lead_no = document.getElementById("leader_number");
 const first_name = document.getElementById("first_name");
 const first_uid = document.getElementById("first_UID");
+const first_no = document.getElementById("first_number");
 const second_name = document.getElementById("second_name");
 const second_uid = document.getElementById("second_UID");
+const second_no = document.getElementById("second_number");
 const third_name = document.getElementById("third_name");
 const third_uid = document.getElementById("third_UID");
+const third_no = document.getElementById("third_number");
 const fourth_name = document.getElementById("fourth_name");
 const fourth_uid = document.getElementById("fourth_UID");
+const fourth_no = document.getElementById("fourth_number");
 const fifth_name = document.getElementById("fifth_name");
 const fifth_uid = document.getElementById("fifth_UID");
+const fifth_no = document.getElementById("fifth_number");
 const sixth_name = document.getElementById("sixth_name");
 const sixth_uid = document.getElementById("sixth_UID");
+const sixth_no = document.getElementById("sixth_number");
 
 function Registeruser() {
     const dbref = ref(db);
+    const e = lead_uid.value;
+    const email = e + "@cuchd.in";
     if (auntenticate()) {
-        get(child(dbref, "UsersList/" + lead_uid.value)).then((snapshot) => {
+        get(child(dbref, "UsersList/" + team.value)).then((snapshot) => {
             if (snapshot.exists()) { alert("Already Exist"); } else {
                 set(child(dbref, "UsersList/" +
-                    lead_uid.value), {
-                    Problem_Statement: psname,
-                    PS_ID: psid,
-                    Team_Name: team,
+                    team.value), {
+                    Problem_Statement: psname.value,
+                    PS_ID: psid.value,
+                    Team_Name: team.value,
                     Leadername: lead_name.value,
                     LeaderUID: lead_uid.value,
+                    LeaderNo: lead_no.value,
+                    LeadEmail: email,
                     Firstmember: first_name.value,
                     FirstUID: first_uid.value,
+                    FirstNo: first_no.value,
                     Secondmember: second_name.value,
                     SecondUID: second_uid.value,
+                    SecondNo: second_no.value,
                     Thirdmember: third_name.value,
                     ThirdUID: third_uid.value,
-                    Fouthname: fourth_name,
-                    FourthUID: fourth_uid,
-                    Fifthname: fifth_name,
-                    FifthhUID: fifth_uid,
-                    Sixthname: sixth_name,
-                    SixthUID: sixth_uid
+                    ThirdNo: third_no.value,
+                    Fouthname: fourth_name.value,
+                    FourthUID: fourth_uid.value,
+                    FourthNo: fourth_no.value,
+                    Fifthname: fifth_name.value,
+                    FifthhUID: fifth_uid.value,
+                    FifthNo: fifth_no.value,
+                    Sixthname: sixth_name.value,
+                    SixthUID: sixth_uid.value,
+                    SixthtNo: sixth_no.value
 
                 }).then(() => { gotologin(); }).catch((error) => { alert("error: " + error); })
             }
@@ -76,7 +93,6 @@ function gotologin() { alert("User registed successfully"); }
 function auntenticate() {
     if (psname.value != "" && psid.value != "" && team.value != "" && lead_name.value != "" && lead_uid.value != "" && first_name.value != "" && first_uid.value != "" && second_name.value != "" && second_uid.value != "" && third_name.value != "" && third_uid.value != "") {
         console.log(1);
-        console.log(psname.value);
         return true;
     } else {
         return false;
